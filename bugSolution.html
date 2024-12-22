@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Error Solution</title>
+</head>
+<body>
+  <p>This is a paragraph.</p>
+  <div id="myDiv"></div>
+  <script>
+    const myElement = document.getElementById("myDiv");
+    // Solution 1: Using hasOwnProperty()
+    if (myElement && myElement.hasOwnProperty("nonExistentAttribute")) {
+      const attributeValue = myElement.nonExistentAttribute;
+      console.log(attributeValue); 
+    } else {
+      console.log("Attribute does not exist");
+    }
+
+    // Solution 2: Using optional chaining
+    const attributeValue2 = myElement?.nonExistentAttribute;
+    if (attributeValue2 === undefined){
+        console.log("Attribute does not exist");
+    } else {
+        console.log(attributeValue2);
+    }
+  </script>
+</body>
+</html>
